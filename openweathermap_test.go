@@ -5,8 +5,8 @@ import (
 	"testing"
 )
 
-func TestQueryCoords(t *testing.T) {
-	q, err := Query("tallinn", "metric")
+func TestWeatherCoords(t *testing.T) {
+	q, err := Weather("tallinn", "metric")
 	if err != nil {
 		log.Panic(err)
 	}
@@ -19,8 +19,8 @@ func TestQueryCoords(t *testing.T) {
 	}
 }
 
-func TestQueryWind(t *testing.T) {
-	q, err := Query("tallinn", "metric")
+func TestWeatherWind(t *testing.T) {
+	q, err := Weather("tallinn", "metric")
 	if err != nil {
 		log.Panic(err)
 	}

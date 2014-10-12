@@ -1,12 +1,12 @@
 package openweathermap
 
 type (
-	WeatherResp struct {
+	Current struct {
 		Coord   Coord
 		Wind    Wind
 		Main    Main
 		Clouds  Clouds
-		Weather []Weather
+		Weather []WeatherStruct
 		Sys     Sys
 		Name    string
 		Base    string
@@ -15,7 +15,7 @@ type (
 		Cod     int64
 	}
 
-	Weather struct {
+	WeatherStruct struct {
 		Id          int64
 		Main        string
 		Description string

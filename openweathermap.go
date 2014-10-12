@@ -11,8 +11,8 @@ const (
 	baseUrl = "http://api.openweathermap.org/data/" + version
 )
 
-func Query(q string, units string) (*WeatherResp, error) {
-	weather := WeatherResp{}
+func Weather(q string, units string) (*Current, error) {
+	weather := Current{}
 	url := fmt.Sprintf("%s/weather/?q=%s&units=%s", baseUrl, q, units)
 	err := request(url, &weather)
 	return &weather, err
