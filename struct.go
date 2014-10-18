@@ -1,12 +1,20 @@
 package openweathermap
 
 type (
-	Current struct {
+	ForecastWather struct {
+		Cod     string
+		Message float64
+		City    City
+		Cnt     int64
+		List    []CurrentWeather
+	}
+
+	CurrentWeather struct {
 		Coord   Coord
 		Wind    Wind
 		Main    Main
 		Clouds  Clouds
-		Weather []WeatherStruct
+		Weather []Weather
 		Sys     Sys
 		Name    string
 		Base    string
@@ -15,7 +23,15 @@ type (
 		Cod     int64
 	}
 
-	WeatherStruct struct {
+	City struct {
+		Id         int64
+		Name       string
+		Coord      Coord
+		Country    string
+		Population int64
+	}
+
+	Weather struct {
 		Id          int64
 		Main        string
 		Description string
@@ -27,8 +43,8 @@ type (
 
 	Main struct {
 		Temp     float64
-		Pressure int64
-		Humidity int64
+		Pressure float64
+		Humidity float64
 		Temp_min float64
 		Temp_max float64
 	}
@@ -44,7 +60,7 @@ type (
 
 	Wind struct {
 		Speed float64
-		Deg   int64
+		Deg   float64
 	}
 
 	Coord struct {

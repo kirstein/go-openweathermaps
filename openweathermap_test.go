@@ -5,8 +5,8 @@ import (
 	"testing"
 )
 
-func TestWeatherCoords(t *testing.T) {
-	q, err := Weather("tallinn", "metric")
+func TestCurrentCoords(t *testing.T) {
+	q, err := Current("tallinn", "metric")
 	if err != nil {
 		log.Panic(err)
 	}
@@ -19,8 +19,8 @@ func TestWeatherCoords(t *testing.T) {
 	}
 }
 
-func TestWeatherWind(t *testing.T) {
-	q, err := Weather("tallinn", "metric")
+func TestCurrentWind(t *testing.T) {
+	q, err := Current("tallinn", "metric")
 	if err != nil {
 		log.Panic(err)
 	}
@@ -30,5 +30,15 @@ func TestWeatherWind(t *testing.T) {
 	}
 	if q.Wind.Deg == 0 {
 		t.Errorf("Wind deg should be set")
+	}
+}
+
+func TestForecast(t *testing.T) {
+	q, err := Forecast("tallinn", "metric")
+	if err != nil {
+		log.Panic(err)
+	}
+	if q.City.Name != "Tallinn" {
+		t.Errorf("City = %s, expected %s", q.City.Name, "tallinn")
 	}
 }
